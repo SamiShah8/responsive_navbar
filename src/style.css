@@ -5,10 +5,11 @@
     --primary-font: "Roboto", serif;
     --secondary-font: "Hanken Grotesk", serif;
     --primary-color: #7E5CAD;
-    --font-color: #F2F9FF;
-    --body-bg-color: #A8CD89;
+    --font-color: #1A1A1D;
+    --body-bg-color: #F5EFFF;
     --body-fontsize: 1rem;
     --body-line-height: 1.5;
+    --primary-border-color: #CDC1FF;
 }
 
 * {
@@ -35,6 +36,11 @@ body {
     background-color: var(--body-bg-color)
 }
 
+header {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 0.5rem 0;
+}
+
 .container--fluid {
     max-width: 1440px;
     width: 90%;
@@ -48,28 +54,144 @@ body {
     padding: 1rem 0;
 }
 
+.btn_container button {
+    color: white;
+    background-color: var(--primary-color);
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.75rem 1.25rem;
+}
+
+.btn_big_size {
+    display: none;
+}
+
 .header_logo h1 {
     text-transform: capitalize;
     font-family: var(--secondary-font);
     font-size: 1.5rem;
 }
 
-/* .header_logo img {
-    object-fit: cover;
-} */
+.nav_links ul li {
+    list-style-type: none;
+    width: 100%;
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 600;
+}
 
-.nav_links {
+.mobile_view_navbar ul li {
+    border-bottom: 2px solid var(--primary-border-color);
+    padding: 1rem 0;
+}
+
+.mobile_view_navbar {
+    position: fixed;
+    z-index: 50;
+    width: 70%;
+    background-color: #F2F9FF;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    padding: 1rem;
+    /* transition: transform 0.5s linear; */
+    transition-property: transform;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-in-out;
+    transform: translateX(100%);
+}
+
+.mobile_view_navbar ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.mobile_view_btn {
+    display: flex;
+    gap: 0.5rem;
+
+}
+
+.mobile_view_btn button {
+    margin-top: 1rem;
+}
+
+.mobile_view_logo {
+    z-index: 50;
+}
+
+.nav_links_big_size {
     display: none;
 }
 
-.btn_container {
-    display: none;
+.hamburger-icon-x {
+    position: relative;
 }
 
+.hamburger-icon-x button i {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 
 .hamburger-icon button {
     background-color: transparent;
     border: none;
     font-size: 1.5rem;
     color: var(--font-color);
+}
+
+.btn_ham_container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+/* media query for 768px */
+@media (min-width: 768px) {
+    .header_logo h1 {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .btn_big_size {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .hamburger-icon {
+        font-size: 2rem;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .nav_links_big_size {
+        display: flex;
+    }
+
+    .links {
+        display: flex;
+        gap: 2rem;
+
+    }
+
+    .links li a {
+        font-size: 1.3rem;
+    }
+
+    .mobile_view_navbar {
+        display: none;
+    }
+
+    .hamburger-icon {
+        display: none;
+    }
+
 }
